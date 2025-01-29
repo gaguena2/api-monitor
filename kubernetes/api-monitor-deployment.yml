@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-monitor-deployment
+  namespace: infra-app
+  labels:
+    app: api-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-monitor
+  template:
+    metadata:
+      labels:
+        app: api-monitor
+    spec:
+      containers:
+      - name: api-monitor
+        image: api-monitor:1.0.11
+        envFrom:
+          - configMapRef:
+              name: api-monitor-configmap
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3001

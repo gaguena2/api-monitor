@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-monitor-configmap
+  namespace: infra-app
+data:
+  USER_DB: mongodb
+  SECRET_DB: Brasil04
+  HOST_DB: 192.168.15.30
+  DATABASE: api_promo
+  access_level: "1"

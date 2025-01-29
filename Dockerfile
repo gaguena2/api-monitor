@@ -8,4 +8,4 @@ RUN npm install
 
 EXPOSE 3001
 
-ENTRYPOINT ["node", "src/app/index.js"]
+ENTRYPOINT ["node", "bin/www"]
